@@ -7,6 +7,6 @@ module.exports = [
   {
     text: '更新日志',
     link:
-      'https://github.com/SuYxh/vitepress-demo'
+      'https://github.com/SuYxh/huhushengwei-docs'
   }
 ]
