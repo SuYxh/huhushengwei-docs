@@ -1,14 +1,15 @@
 const base = process.env.BASE || '/'
 const nav = require('./configs/nav')
-const sidebar = require('./configs/sidebar')
+const sidebar = require('./configs/sidebar/index')
 
 module.exports = {
-  title: 'VitePress',
+  title: 'Huhushengwei',
   description: 'Life is short, Keep it simple.',
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]],
   base: base,
   themeConfig: {
-    repo: 'SuYxh/huhushengwei-docs',
+    // 注释掉 repo 就不在展示 GitHub 
+    // repo: 'SuYxh/huhushengwei-docs',
     logo: '/logo.svg',
     docsDir: 'docs',
     docsBranch: 'master',
