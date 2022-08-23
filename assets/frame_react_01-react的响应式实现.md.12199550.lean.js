@@ -1,0 +1,1 @@
+import{o as t,c as a,a as e}from"./app.3489e9aa.js";const r='{"title":"01-react的响应式实现","description":"","frontmatter":{},"relativePath":"frame/react/01-react的响应式实现.md","lastUpdated":1661238236479}',c={},o=[e("h1",{id:"_01-react的响应式实现"},"01-react的响应式实现",-1)];c.render=function(e,r,c,d,i,n){return t(),a("div",null,o)};export default c;export{r as __pageData};
