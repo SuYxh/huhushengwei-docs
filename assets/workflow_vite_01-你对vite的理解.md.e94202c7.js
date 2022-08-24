@@ -1,1 +1,0 @@
-import{o as t,c as e,a}from"./app.3489e9aa.js";const i='{"title":"01-你对vite的理解","description":"","frontmatter":{},"relativePath":"workflow/vite/01-你对vite的理解.md","lastUpdated":1661238236483}',r={},o=[a("h1",{id:"_01-你对vite的理解"},"01-你对vite的理解",-1)];r.render=function(a,i,r,d,n,l){return t(),e("div",null,o)};export default r;export{i as __pageData};

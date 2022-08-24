@@ -1,1 +1,0 @@
-import{o as t,c as a,a as e}from"./app.3489e9aa.js";const l='{"title":"前端基础知识","description":"","frontmatter":{},"relativePath":"guide/index.md","lastUpdated":1661238236479}',i={},r=[e("h1",{id:"前端基础知识"},"前端基础知识",-1),e("ul",null,[e("li",null,"CSS"),e("li",null,"JavaScript")],-1)];i.render=function(e,l,i,n,d,o){return t(),a("div",null,r)};export default i;export{l as __pageData};

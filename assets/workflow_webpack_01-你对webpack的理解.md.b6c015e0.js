@@ -1,1 +1,0 @@
-import{o as a,c as e,a as t}from"./app.3489e9aa.js";const r='{"title":"01-你对webpack的理解","description":"","frontmatter":{},"relativePath":"workflow/webpack/01-你对webpack的理解.md","lastUpdated":1661238236483}',p={},o=[t("h1",{id:"_01-你对webpack的理解"},"01-你对webpack的理解",-1)];p.render=function(t,r,p,c,d,i){return a(),e("div",null,o)};export default p;export{r as __pageData};

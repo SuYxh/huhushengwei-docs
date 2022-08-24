@@ -1,1 +1,0 @@
-import{o as t,c as e,a}from"./app.3489e9aa.js";const l='{"title":"前端框架知识","description":"","frontmatter":{},"relativePath":"frame/index.md","lastUpdated":1661238236479}',r={},n=[a("h1",{id:"前端框架知识"},"前端框架知识",-1),a("ul",null,[a("li",null,"vue"),a("li",null,"react")],-1)];r.render=function(a,l,r,i,d,o){return t(),e("div",null,n)};export default r;export{l as __pageData};
