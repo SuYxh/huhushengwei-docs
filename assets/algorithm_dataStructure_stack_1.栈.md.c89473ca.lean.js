@@ -1,1 +1,0 @@
-import{o as t,c as a,a as r}from"./app.9306d52c.js";const e='{"title":"栈","description":"","frontmatter":{},"relativePath":"algorithm/dataStructure/stack/1.栈.md","lastUpdated":1661304917430}',d={},o=[r("h1",{id:"栈"},"栈",-1),r("p",null,"数组模拟",-1)];d.render=function(r,e,d,i,l,n){return t(),a("div",null,o)};export default d;export{e as __pageData};

@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>用两个栈实现一个队列 | Huhushengwei</title>
-    <meta name="description" content="Life is short, Keep it simple.">
-    <link rel="stylesheet" href="/huhushengwei-docs/assets/style.8b40fe2e.css">
-    <link rel="modulepreload" href="/huhushengwei-docs/assets/plugin-vue_export-helper.607da6b9.js">
-    <link rel="modulepreload" href="/huhushengwei-docs/assets/Home.9a7f71cc.js">
-    <link rel="modulepreload" href="/huhushengwei-docs/assets/AlgoliaSearchBox.35853f34.js">
-    <link rel="modulepreload" href="/huhushengwei-docs/assets/algorithm_stack_用两个栈实现一个队列.md.ff7e723d.lean.js">
-    <link rel="modulepreload" href="/huhushengwei-docs/assets/app.00a92783.js">
-    <link rel="icon" type="image/svg+xml" href="/logo.svg">
-    <meta name="twitter:title" content="用两个栈实现一个队列 | Huhushengwei">
-    <meta property="og:title" content="用两个栈实现一个队列 | Huhushengwei">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/huhushengwei-docs/" aria-label="Huhushengwei, back to home" data-v-675d8756 data-v-4a583abe><img class="logo" src="/huhushengwei-docs/logo.svg" alt="Logo" data-v-4a583abe> Huhushengwei</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-15acbf05><!--[--><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/guide/" data-v-b8818f8c>基础 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/frame/" data-v-b8818f8c>框架 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/workflow/" data-v-b8818f8c>工程化 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/network/" data-v-b8818f8c>网络 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item active" href="/huhushengwei-docs/algorithm/" data-v-b8818f8c>算法 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/other/" data-v-b8818f8c>其他 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--[--><div class="algolia-search-box" id="docsearch"></div><!--]--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-15acbf05><!--[--><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/guide/" data-v-b8818f8c>基础 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/frame/" data-v-b8818f8c>框架 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/workflow/" data-v-b8818f8c>工程化 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/network/" data-v-b8818f8c>网络 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item active" href="/huhushengwei-docs/algorithm/" data-v-b8818f8c>算法 <!----></a></div></div><div class="item" data-v-15acbf05><div class="nav-link" data-v-15acbf05 data-v-b8818f8c><a class="item" href="/huhushengwei-docs/other/" data-v-b8818f8c>其他 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><p class="sidebar-link-item">数据结构</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="/huhushengwei-docs/algorithm/dataStructure/stack/1.栈">栈</a><!----></li></ul></li><li class="sidebar-link"><p class="sidebar-link-item">栈</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item active" href="/huhushengwei-docs/algorithm/stack/用两个栈实现一个队列">用两个栈实现一个队列</a><!----></li></ul></li><li class="sidebar-link"><p class="sidebar-link-item">链表</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="/huhushengwei-docs/algorithm/linkList/JS反转单向链表">JS反转单向链表</a><!----></li></ul></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="用两个栈实现一个队列">用两个栈实现一个队列</h1><h3 id="思路">思路</h3><p><img src="https://qn.huat.xyz/mac/20220824133731.png" alt="两个栈实现一个队列"></p><h3 id="代码">代码</h3><div class="language-ts"><pre><code><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyQueue</span> <span class="token punctuation">{</span>
+import{_ as n,e as s,o as a,Q as t}from"./plugin-vue_export-helper.607da6b9.js";const f='{"title":"\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u4E00\u4E2A\u961F\u5217","description":"","frontmatter":{},"headers":[{"level":3,"title":"\u601D\u8DEF","slug":"\u601D\u8DEF"},{"level":3,"title":"\u4EE3\u7801","slug":"\u4EE3\u7801"},{"level":3,"title":"\u6D4B\u8BD5","slug":"\u6D4B\u8BD5"}],"relativePath":"algorithm/stack/\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u4E00\u4E2A\u961F\u5217.md","lastUpdated":1661442422321}',p={},o=t(`<h1 id="\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u4E00\u4E2A\u961F\u5217">\u7528\u4E24\u4E2A\u6808\u5B9E\u73B0\u4E00\u4E2A\u961F\u5217</h1><h3 id="\u601D\u8DEF">\u601D\u8DEF</h3><p><img src="https://qn.huat.xyz/mac/20220824133731.png" alt="\u4E24\u4E2A\u6808\u5B9E\u73B0\u4E00\u4E2A\u961F\u5217"></p><h3 id="\u4EE3\u7801">\u4EE3\u7801</h3><div class="language-ts"><pre><code><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyQueue</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> stack1<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     <span class="token keyword">private</span> stack2<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
     <span class="token comment">/**
-     * 入队
+     * \u5165\u961F
      * @param n n
      */</span>
     <span class="token function">add</span><span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -29,7 +11,7 @@
     <span class="token punctuation">}</span>
 
     <span class="token comment">/**
-     * 出队
+     * \u51FA\u961F
      */</span>
     <span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
         <span class="token keyword">let</span> res
@@ -37,7 +19,7 @@
         <span class="token keyword">const</span> stack1 <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>stack1
         <span class="token keyword">const</span> stack2 <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>stack2
 
-        <span class="token comment">// 将 stack1 所有元素移动到 stack2 中</span>
+        <span class="token comment">// \u5C06 stack1 \u6240\u6709\u5143\u7D20\u79FB\u52A8\u5230 stack2 \u4E2D</span>
         <span class="token keyword">while</span><span class="token punctuation">(</span>stack1<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">const</span> n <span class="token operator">=</span> stack1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -48,7 +30,7 @@
         <span class="token comment">// stack2 pop</span>
         res <span class="token operator">=</span> stack2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        <span class="token comment">// 将 stack2 所有元素“还给”stack1</span>
+        <span class="token comment">// \u5C06 stack2 \u6240\u6709\u5143\u7D20\u201C\u8FD8\u7ED9\u201Dstack1</span>
         <span class="token keyword">while</span><span class="token punctuation">(</span>stack2<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">const</span> n <span class="token operator">=</span> stack2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -64,7 +46,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment">// 功能测试</span>
+<span class="token comment">// \u529F\u80FD\u6D4B\u8BD5</span>
 <span class="token comment">// const q = new MyQueue()</span>
 <span class="token comment">// q.add(100)</span>
 <span class="token comment">// q.add(200)</span>
@@ -75,10 +57,10 @@
 <span class="token comment">// console.info(q.delete())</span>
 <span class="token comment">// console.info(q.length)</span>
 
-</code></pre></div><h3 id="测试">测试</h3><div class="language-ts"><pre><code>
+</code></pre></div><h3 id="\u6D4B\u8BD5">\u6D4B\u8BD5</h3><div class="language-ts"><pre><code>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> MyQueue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;./two-stacks-one-queue&#39;</span>
 
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#39;两个栈，一个队列&#39;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#39;\u4E24\u4E2A\u6808\uFF0C\u4E00\u4E2A\u961F\u5217&#39;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">&#39;add and length&#39;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> q <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token function">expect</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
@@ -103,8 +85,4 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-</code></pre></div></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><p class="last-updated" data-v-fb8d84c6 data-v-5797b537><span class="prefix" data-v-5797b537>上次更新:</span><span class="datetime" data-v-5797b537></span></p></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/huhushengwei-docs/algorithm/dataStructure/stack/1.栈" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>栈</span></a></div><div class="next" data-v-38ede35f><a class="link" href="/huhushengwei-docs/algorithm/linkList/JS反转单向链表" data-v-38ede35f><span class="text" data-v-38ede35f>JS反转单向链表</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-38ede35f><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"5fe6a9cc\",\"algorithm_index.md\":\"79c6fecf\",\"frame_index.md\":\"022c370f\",\"guide_index.md\":\"31669e78\",\"network_index.md\":\"9b53d260\",\"other_index.md\":\"9ed7d7f2\",\"workflow_index.md\":\"f29e6477\",\"algorithm_linklist_js反转单向链表.md\":\"ec452923\",\"algorithm_stack_用两个栈实现一个队列.md\":\"ff7e723d\",\"frame_react_01-react的响应式实现.md\":\"7349f479\",\"frame_vue_01-vue组件之间通信方式有哪些.md\":\"434bc284\",\"guide_css_如何实现居中.md\":\"279c64de\",\"guide_js_内置类型.md\":\"55aa27db\",\"network_http_1.http 和 https.md\":\"2d6f6281\",\"network_tcp_1.tcp三次握手.md\":\"50507c92\",\"workflow_deploy_部署.md\":\"c734ad78\",\"workflow_vite_01-你对vite的理解.md\":\"90850c05\",\"workflow_webpack_01-你对webpack的理解.md\":\"1b59946c\",\"algorithm_datastructure_stack_1.栈.md\":\"7cea749e\",\"guide_js_func_1.格式化金额.md\":\"c72c870c\"}")</script>
-    <script type="module" async src="/huhushengwei-docs/assets/app.00a92783.js"></script>
-  </body>
-</html>
+</code></pre></div>`,7),c=[o];function e(u,l,k,i,r,d){return a(),s("div",null,c)}var h=n(p,[["render",e]]);export{f as __pageData,h as default};

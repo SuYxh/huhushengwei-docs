@@ -1,1 +1,0 @@
-import{o as t,c as e,b as p}from"./app.9306d52c.js";const o='{"title":"1. HTTP 和 HTTPS","description":"","frontmatter":{},"relativePath":"network/http/1.HTTP 和 HTTPS.md","lastUpdated":1661304917434}',l={},d=[p('',9)];l.render=function(p,o,l,h,i,T){return t(),e("div",null,d)};export default l;export{o as __pageData};

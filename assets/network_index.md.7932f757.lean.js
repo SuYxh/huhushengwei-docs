@@ -1,1 +1,0 @@
-import{o as t,c as e,a as r}from"./app.9306d52c.js";const a='{"title":"网络知识","description":"","frontmatter":{},"relativePath":"network/index.md","lastUpdated":1661304917434}',n={},d=[r("h1",{id:"网络知识"},"网络知识",-1),r("p",null,"计算机网络",-1)];n.render=function(r,a,n,o,i,l){return t(),e("div",null,d)};export default n;export{a as __pageData};
