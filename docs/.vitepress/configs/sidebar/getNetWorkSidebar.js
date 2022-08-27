@@ -6,6 +6,10 @@ module.exports = function getNetWorkSidebar() {
         {
           text: '1.HTTP 和 HTTPS',
           link: '/network/http/1.HTTP 和 HTTPS'
+        },
+        {
+          text: '2.HTTP 请求跨域问题',
+          link: '/network/http/2.HTTP 请求跨域问题'
         }
       ]
     },
@@ -27,6 +31,10 @@ module.exports = function getNetWorkSidebar() {
         {
           text: '4.TCP和UDP的区别',
           link: '/network/tcp/4.TCP和UDP的区别'
+        },
+        {
+          text: '5.粘包问题分析与对策',
+          link: '/network/tcp/5.粘包问题分析与对策'
         }
       ]
     },

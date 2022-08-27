@@ -1,4 +1,3 @@
-import { funcTest } from './algorithm/stack/two-stacks-one-queue';
-
+import { funcTest } from './algorithm/linkList/reverseList/index';
 
 funcTest()
