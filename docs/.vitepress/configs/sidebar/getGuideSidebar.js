@@ -94,10 +94,6 @@ module.exports = function getGuideSidebar() {
       text: 'JavaScript',
       children: [
         {
-          text: '内置类型',
-          link: '/guide/js/内置类型',
-        },
-        {
           text: '手写函数',
           children: [
             {
@@ -105,6 +101,58 @@ module.exports = function getGuideSidebar() {
               link: '/guide/js/func/1.格式化金额',
             },
           ],
+        },
+        {
+          text: '1.JS中的8种数据类型及区别',
+          link: '/guide/js/1.JS中的8种数据类型及区别',
+        },
+        {
+          text: '2.JS中的数据类型检测方案',
+          link: '/guide/js/2.JS中的数据类型检测方案',
+        },
+        {
+          text: '3.var && let && const',
+          link: '/guide/js/3.var && let && const',
+        },
+        {
+          text: '4.JS垃圾回收机制',
+          link: '/guide/js/4.JS垃圾回收机制',
+        },
+        {
+          text: '5.作用域和作用域链',
+          link: '/guide/js/5.作用域和作用域链',
+        },
+        {
+          text: '6.闭包的两大作用：保存、保护',
+          link: '/guide/js/6.闭包的两大作用：保存、保护',
+        },
+        {
+          text: '7.JS 中 this 的五种情况',
+          link: '/guide/js/7.JS 中 this 的五种情况',
+        },
+        {
+          text: '8.原型 && 原型链',
+          link: '/guide/js/8.原型 && 原型链',
+        },
+        {
+          text: '9.new运算符的实现机制',
+          link: '/guide/js/9.new运算符的实现机制',
+        },
+        {
+          text: '10.EventLoop 事件循环',
+          link: '/guide/js/10.EventLoop 事件循环',
+        },
+        {
+          text: '11.setTimeout、Promise、Async、Await 的区别',
+          link: '/guide/js/11.setTimeout、Promise、Async、Await 的区别',
+        },
+        {
+          text: '12.Async、Await 如何通过同步的方式实现异步',
+          link: '/guide/js/12.Async、Await 如何通过同步的方式实现异步',
+        },
+        {
+          text: '13.介绍节流防抖原理、区别以及应用',
+          link: '/guide/js/13.介绍节流防抖原理、区别以及应用',
         },
       ],
     },
