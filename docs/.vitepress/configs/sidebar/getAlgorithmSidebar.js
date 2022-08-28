@@ -10,6 +10,27 @@ module.exports = function getAlgorithmSidebar() {
       ]
     },
     {
+      text: '排序',
+      children: [
+        {
+          text: '1.冒泡排序',
+          link: '/algorithm/search/1.冒泡排序'
+        },
+        {
+          text: '2.二分查找',
+          link: '/algorithm/search/2.二分查找'
+        },
+        {
+          text: '3.插入排序',
+          link: '/algorithm/search/3.插入排序'
+        },
+        {
+          text: '4.快速排序',
+          link: '/algorithm/search/4.快速排序'
+        }
+      ]
+    },
+    {
       text: '栈',
       children: [
         {

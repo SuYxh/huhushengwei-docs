@@ -1,9 +1,4 @@
 /**
- * @description 二分查找
- * @author 双越老师
- */
-
-/**
  * 二分查找（循环）
  * @param arr arr
  * @param target target
