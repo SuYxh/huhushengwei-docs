@@ -6,6 +6,7 @@ const getNetWorkSidebar = require('./getNetWorkSidebar');
 const getAlgorithmSidebar = require('./getAlgorithmSidebar');
 const getToolSidebar = require('./getToolSidebar');
 const getPerformanceSidebar = require('./getPerformanceSidebar');
+const getOtherSidebar = require('./getOtherSidebar');
 
 module.exports = {
   [getPath('/guide/')]: getGuideSidebar(),
@@ -15,7 +16,7 @@ module.exports = {
   [getPath('/algorithm/')]: getAlgorithmSidebar(),
   [getPath('/performance/')]: getPerformanceSidebar(),
   [getPath('/devTool/')]: getToolSidebar(),
-  [getPath('/other/')]: 'auto',
+  [getPath('/other/')]: getOtherSidebar(),
 }
 
 

@@ -94,15 +94,6 @@ module.exports = function getGuideSidebar() {
       text: 'JavaScript',
       children: [
         {
-          text: '手写函数',
-          children: [
-            {
-              text: '格式化金额',
-              link: '/guide/js/func/1.格式化金额',
-            },
-          ],
-        },
-        {
           text: '1.JS中的8种数据类型及区别',
           link: '/guide/js/1.JS中的8种数据类型及区别',
         },
@@ -153,6 +144,15 @@ module.exports = function getGuideSidebar() {
         {
           text: '13.介绍节流防抖原理、区别以及应用',
           link: '/guide/js/13.介绍节流防抖原理、区别以及应用',
+        },
+      ],
+    },
+    {
+      text: '手写函数',
+      children: [
+        {
+          text: '格式化金额',
+          link: '/guide/func/1.格式化金额',
         },
       ],
     },
