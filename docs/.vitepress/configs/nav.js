@@ -6,5 +6,7 @@ module.exports = [
   { text: '工程化', link: '/workflow/', activeMatch: getPath('^/workflow/') },
   { text: '网络', link: '/network/', activeMatch: getPath('^/network/') },
   { text: '算法', link: '/algorithm/', activeMatch: getPath('^/algorithm/') },
+  { text: '性能优化', link: '/performance/', activeMatch: getPath('^/performance/') },
+  { text: '工具', link: '/devTool/', activeMatch: getPath('^/devTool/') },
   { text: '其他', link: '/other/', activeMatch: getPath('^/other/')  },
 ]
