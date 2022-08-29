@@ -6,6 +6,34 @@ module.exports = function getAlgorithmSidebar() {
         {
           text: '栈',
           link: '/algorithm/dataStructure/stack/1.栈'
+        },
+        {
+          text: '队列',
+          link: '/algorithm/dataStructure/queue/队列'
+        },
+        {
+          text: '优先队列',
+          link: '/algorithm/dataStructure/queue/优先队列'
+        },
+        {
+          text: '单向链表',
+          link: '/algorithm/dataStructure/linkList/单向链表'
+        },
+        {
+          text: '双向链表',
+          link: '/algorithm/dataStructure/linkList/双向链表'
+        },
+        {
+          text: '树',
+          link: '/algorithm/dataStructure/tree/树'
+        },
+        {
+          text: '二叉树',
+          link: '/algorithm/dataStructure/tree/二叉树'
+        },
+        {
+          text: '二叉搜索树',
+          link: '/algorithm/dataStructure/tree/二叉搜索树'
         }
       ]
     },
