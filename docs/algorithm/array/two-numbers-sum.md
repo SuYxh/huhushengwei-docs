@@ -1,8 +1,8 @@
-/**
- * 寻找和为 n 的两个数（嵌套循环）
- * @param arr arr
- * @param n n
- */
+### 方法一：暴力循环
+
+第一层循环数组元素，第二层循环从i+1起，逐个对比，看有没有加起来和为输入值的。
+
+```js
 export function findTowNumbers1(arr: number[], n: number): number[] {
   const res: number[] = []
 
@@ -30,12 +30,17 @@ export function findTowNumbers1(arr: number[], n: number): number[] {
 
   return res
 }
+```
 
-/**
- * 查找和为 n 的两个数（双指针）
- * @param arr arr
- * @param n n
- */
+
+
+
+
+### 方法二：双指针
+
+两个指针，一前一后，分别向中间靠拢，逐步判断两个指针对应的值是否符合要求。如果两个指针对应的数之和大于给定的值，那么尾指针前移，如果小于给定的值那么头指针后移。
+
+```ts
 export function findTowNumbers2(arr: number[], n: number): number[] {
   const res: number[] = []
 
@@ -67,54 +72,9 @@ export function findTowNumbers2(arr: number[], n: number): number[] {
 
   return res
 }
+```
 
-// 功能测试
-export function funcTest() {
-  const arr = [
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    1,
-    2,
-    4,
-    7,
-    11,
-    15,
-  ]
-  console.info(findTowNumbers2(arr, 15))
 
-  console.time('findTowNumbers1')
-  for (let i = 0; i < 100 * 10000; i++) {
-    findTowNumbers1(arr, 15)
-  }
-  console.timeEnd('findTowNumbers1') // 730ms
 
-  console.time('findTowNumbers2')
-  for (let i = 0; i < 100 * 10000; i++) {
-    findTowNumbers2(arr, 15)
-  }
-  console.timeEnd('findTowNumbers2') // 102
-}
+
+

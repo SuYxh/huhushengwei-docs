@@ -59,6 +59,15 @@ module.exports = function getAlgorithmSidebar() {
       ]
     },
     {
+      text: '数组',
+      children: [
+        {
+          text: '两数之和',
+          link: '/algorithm/array/two-numbers-sum'
+        }
+      ]
+    },
+    {
       text: '栈',
       children: [
         {
