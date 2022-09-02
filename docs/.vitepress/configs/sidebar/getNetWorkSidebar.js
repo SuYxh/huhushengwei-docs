@@ -25,8 +25,8 @@ module.exports = function getNetWorkSidebar() {
           link: '/network/tcp/2.TCP 四次挥手'
         },
         {
-          text: '3.TCP:IP-如何保证数据包传输的有序可靠？',
-          link: '/network/tcp/3.TCP:IP-如何保证数据包传输的有序可靠？'
+          text: '3.TCP如何保证数据包传输的有序可靠',
+          link: '/network/tcp/3.TCP如何保证数据包传输的有序可靠'
         },
         {
           text: '4.TCP和UDP的区别',
