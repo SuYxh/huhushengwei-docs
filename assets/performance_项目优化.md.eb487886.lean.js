@@ -1,0 +1,1 @@
+import{o as e,c as o,b as p}from"./app.157864df.js";const c='{"title":"项目优化","description":"","frontmatter":{},"headers":[{"level":3,"title":"项目优化","slug":"项目优化"}],"relativePath":"performance/项目优化.md","lastUpdated":1662083353139}',r={},d=[p('',12)];r.render=function(p,c,r,t,n,l){return e(),o("div",null,d)};export default r;export{c as __pageData};

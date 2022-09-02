@@ -1,0 +1,1 @@
+import{o as t,c as d,b as e}from"./app.157864df.js";const r='{"title":"CSS 盒子模型","description":"","frontmatter":{},"headers":[{"level":3,"title":"CSS 盒子模型","slug":"css-盒子模型"}],"relativePath":"guide/html&css/5.CSS 盒子模型.md","lastUpdated":1662083353135}',o={},n=[e('',5)];o.render=function(e,r,o,i,s,p){return t(),d("div",null,n)};export default o;export{r as __pageData};

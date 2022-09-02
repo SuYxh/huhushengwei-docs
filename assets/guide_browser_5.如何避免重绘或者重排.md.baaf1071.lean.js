@@ -1,0 +1,1 @@
+import{o as e,c as o,b as t}from"./app.157864df.js";const a='{"title":"如何避免重绘或者重排？","description":"","frontmatter":{},"headers":[{"level":3,"title":"如何避免重绘或者重排？","slug":"如何避免重绘或者重排？"}],"relativePath":"guide/browser/5.如何避免重绘或者重排.md","lastUpdated":1662083353135}',l={},p=[t('',4)];l.render=function(t,a,l,n,i,s){return e(),o("div",null,p)};export default l;export{a as __pageData};

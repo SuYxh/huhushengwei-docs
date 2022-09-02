@@ -1,0 +1,1 @@
+import{o as a,c as n,b as s}from"./app.157864df.js";const t='{"title":"清除浮动的方式","description":"","frontmatter":{},"headers":[{"level":3,"title":"清除浮动的方式","slug":"清除浮动的方式"}],"relativePath":"guide/html&css/12.清除浮动的方式.md","lastUpdated":1662083353135}',p={},e=[s('',5)];p.render=function(s,t,p,l,o,c){return a(),n("div",null,e)};export default p;export{t as __pageData};

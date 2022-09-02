@@ -1,0 +1,1 @@
+import{o as e,c as o,b as d}from"./app.157864df.js";const t='{"title":"作用域和作用域链","description":"","frontmatter":{},"headers":[{"level":3,"title":"作用域和作用域链","slug":"作用域和作用域链"}],"relativePath":"guide/js/5.作用域和作用域链.md","lastUpdated":1662083353139}',p={},c=[d('',5)];p.render=function(d,t,p,r,s,_){return e(),o("div",null,c)};export default p;export{t as __pageData};

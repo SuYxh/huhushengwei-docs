@@ -1,0 +1,1 @@
+import{o,c as t,b as e}from"./app.157864df.js";const l='{"title":"JS垃圾回收机制","description":"","frontmatter":{},"headers":[{"level":3,"title":"JS垃圾回收机制","slug":"js垃圾回收机制"}],"relativePath":"guide/js/4.JS垃圾回收机制.md","lastUpdated":1662083353139}',p={},r=[e('',2)];p.render=function(e,l,p,i,s,n){return o(),t("div",null,r)};export default p;export{l as __pageData};

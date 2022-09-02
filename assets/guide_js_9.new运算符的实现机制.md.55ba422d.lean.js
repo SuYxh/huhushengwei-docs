@@ -1,0 +1,1 @@
+import{o as e,c as t,b as o}from"./app.157864df.js";const l='{"title":"new运算符的实现机制","description":"","frontmatter":{},"headers":[{"level":3,"title":"new运算符的实现机制","slug":"new运算符的实现机制"}],"relativePath":"guide/js/9.new运算符的实现机制.md","lastUpdated":1662083353139}',d={},i=[o('',2)];d.render=function(o,l,d,n,r,c){return e(),t("div",null,i)};export default d;export{l as __pageData};

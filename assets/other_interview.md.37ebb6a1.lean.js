@@ -1,0 +1,1 @@
+import{o as e,c as t,b as r}from"./app.157864df.js";const i='{"title":"interview","description":"","frontmatter":{},"headers":[{"level":2,"title":"interview","slug":"interview"}],"relativePath":"other/interview.md","lastUpdated":1662083353139}',n={},a=[r('',6)];n.render=function(r,i,n,o,h,p){return e(),t("div",null,a)};export default n;export{i as __pageData};
