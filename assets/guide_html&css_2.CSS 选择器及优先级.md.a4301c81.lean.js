@@ -1,1 +1,0 @@
-import{o as l,c as i,b as t}from"./app.157864df.js";const e='{"title":"CSS 选择器及优先级","description":"","frontmatter":{},"headers":[{"level":3,"title":"CSS 选择器及优先级","slug":"css-选择器及优先级"}],"relativePath":"guide/html&css/2.CSS 选择器及优先级.md","lastUpdated":1662083353135}',o={},r=[t('',6)];o.render=function(t,e,o,s,a,d){return l(),i("div",null,r)};export default o;export{e as __pageData};

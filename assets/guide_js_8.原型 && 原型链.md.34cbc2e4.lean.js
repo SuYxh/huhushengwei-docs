@@ -1,0 +1,1 @@
+import{o as t,c as o,b as e}from"./app.157864df.js";const p='{"title":"原型 && 原型链","description":"","frontmatter":{},"headers":[{"level":3,"title":"原型 && 原型链","slug":"原型-原型链"}],"relativePath":"guide/js/8.原型 && 原型链.md","lastUpdated":1662433250873}',r={},_=[e('',6)];r.render=function(e,p,r,s,l,c){return t(),o("div",null,_)};export default r;export{p as __pageData};

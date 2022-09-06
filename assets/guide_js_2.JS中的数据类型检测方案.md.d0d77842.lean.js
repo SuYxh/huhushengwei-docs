@@ -1,0 +1,1 @@
+import{o as n,c as s,b as a}from"./app.157864df.js";const t='{"title":"JS中的数据类型检测方案","description":"","frontmatter":{},"headers":[{"level":3,"title":"JS中的数据类型检测方案","slug":"js中的数据类型检测方案"}],"relativePath":"guide/js/2.JS中的数据类型检测方案.md","lastUpdated":1662433250873}',p={},o=[a('',13)];p.render=function(a,t,p,c,e,u){return n(),s("div",null,o)};export default p;export{t as __pageData};

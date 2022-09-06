@@ -1,0 +1,1 @@
+import{o as i,c as l,b as e}from"./app.157864df.js";const t='{"title":"页面布局","description":"","frontmatter":{},"headers":[{"level":3,"title":"页面布局","slug":"页面布局"}],"relativePath":"guide/html&css/10.页面布局.md","lastUpdated":1662433250873}',o={},r=[e('',23)];o.render=function(e,t,o,s,n,p){return i(),l("div",null,r)};export default o;export{t as __pageData};

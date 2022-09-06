@@ -1,1 +1,0 @@
-import{o as e,c as o,b as t}from"./app.157864df.js";const d='{"title":"TCP和UDP的区别","description":"","frontmatter":{},"headers":[{"level":3,"title":"TCP和UDP的区别","slug":"tcp和udp的区别"}],"relativePath":"network/tcp/4.TCP和UDP的区别.md","lastUpdated":1662083353139}',l={},r=[t('',3)];l.render=function(t,d,l,P,c,i){return e(),o("div",null,r)};export default l;export{d as __pageData};

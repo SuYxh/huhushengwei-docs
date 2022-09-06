@@ -1,1 +1,0 @@
-import{o as t,c as e,a as l}from"./app.157864df.js";const r='{"title":"优化相关","description":"","frontmatter":{},"relativePath":"performance/index.md","lastUpdated":1662083353139}',n={},a=[l("h1",{id:"优化相关"},"优化相关",-1),l("ul",null,[l("li",null,"项目优化"),l("li",null,"性能优化")],-1)];n.render=function(l,r,n,i,d,o){return t(),e("div",null,a)};export default n;export{r as __pageData};
