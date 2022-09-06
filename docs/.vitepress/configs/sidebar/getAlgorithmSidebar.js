@@ -85,5 +85,14 @@ module.exports = function getAlgorithmSidebar() {
         }
       ]
     },
+    {
+      text: '树',
+      children: [
+        {
+          text: '寻找 BST 里的第 K 小值',
+          link: '/algorithm/tree/binary-search-tree'
+        }
+      ]
+    },
   ]
 }
