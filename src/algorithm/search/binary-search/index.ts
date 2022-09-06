@@ -3,7 +3,7 @@
  * @param arr arr
  * @param target target
  */
- export function binarySearch1(arr: number[], target: number): number {
+export function binarySearch1(arr: number[], target: number): number {
   const length = arr.length
   if (length === 0) return -1
 
@@ -11,31 +11,36 @@
   let endIndex = length - 1 // 结束位置
 
   while (startIndex <= endIndex) {
-      const midIndex = Math.floor((startIndex + endIndex) / 2)
-      const midValue = arr[midIndex]
-      if (target < midValue) {
-          // 目标值较小，则继续在左侧查找
-          endIndex = midIndex - 1
-      } else if (target > midValue) {
-          // 目标值较大，则继续在右侧查找
-          startIndex = midIndex + 1
-      } else {
-          // 相等，返回
-          return midIndex
-      }
+    const midIndex = Math.floor((startIndex + endIndex) / 2)
+    const midValue = arr[midIndex]
+    if (target < midValue) {
+      // 目标值较小，则继续在左侧查找
+      endIndex = midIndex - 1
+    } else if (target > midValue) {
+      // 目标值较大，则继续在右侧查找
+      startIndex = midIndex + 1
+    } else {
+      // 相等，返回
+      return midIndex
+    }
   }
 
   return -1
 }
 
 /**
-* 二分查找（递归）
-* @param arr arr
-* @param target target
-* @param startIndex start index
-* @param endIndex end index
-*/
-export function binarySearch2(arr: number[], target: number, startIndex?: number, endIndex?: number): number {
+ * 二分查找（递归）
+ * @param arr arr
+ * @param target target
+ * @param startIndex start index
+ * @param endIndex end index
+ */
+export function binarySearch2(
+  arr: number[],
+  target: number,
+  startIndex?: number,
+  endIndex?: number
+): number {
   const length = arr.length
   if (length === 0) return -1
 
@@ -51,14 +56,14 @@ export function binarySearch2(arr: number[], target: number, startIndex?: number
   const midValue = arr[midIndex]
 
   if (target < midValue) {
-      // 目标值较小，则继续在左侧查找
-      return binarySearch2(arr, target, startIndex, midIndex - 1)
+    // 目标值较小，则继续在左侧查找
+    return binarySearch2(arr, target, startIndex, midIndex - 1)
   } else if (target > midValue) {
-      // 目标值较大，则继续在右侧查找
-      return binarySearch2(arr, target, midIndex + 1, endIndex)
+    // 目标值较大，则继续在右侧查找
+    return binarySearch2(arr, target, midIndex + 1, endIndex)
   } else {
-      // 相等，返回
-      return midIndex
+    // 相等，返回
+    return midIndex
   }
 }
 
