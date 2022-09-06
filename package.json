@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://suyxh.github.io/huhushengwei-docs/",
   "scripts": {
     "dev": "vite",
     "docs:dev": "yarn run register:components && vitepress dev docs",
