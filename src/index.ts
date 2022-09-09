@@ -11,6 +11,12 @@
 // import { funcTest } from './algorithm/array/two-numbers-sum';
 
 // 二叉树遍历
-import { funcTest } from './algorithm/tree/binary-search-tree/binary-search-tree';
+// import { funcTest } from './algorithm/tree/binary-search-tree/binary-search-tree';
+
+
+// 求连续最多的字符和次数
+// import { funcTest } from './algorithm/string/continuous-char/index';
+
+import { funcTest } from './algorithm/array/move-zero/index';
 
 funcTest()
