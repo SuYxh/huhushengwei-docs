@@ -17,6 +17,10 @@
 // 求连续最多的字符和次数
 // import { funcTest } from './algorithm/string/continuous-char/index';
 
-import { funcTest } from './algorithm/array/move-zero/index';
+// 移动 0 到数组的末尾（嵌套循环）
+// import { funcTest } from './algorithm/array/move-zero/index';
+
+// 查询 1-max 的所有对称数
+import { funcTest } from './algorithm/string/palindrome-number/index';
 
 funcTest()
