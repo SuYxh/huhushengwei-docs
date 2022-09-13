@@ -88,6 +88,10 @@ module.exports = function getGuideSidebar() {
           text: '12.清除浮动的方式',
           link: '/guide/html&css/12.清除浮动的方式',
         },
+        {
+          text: '13.flex布局',
+          link: '/guide/html&css/13.flex布局',
+        },
       ],
     },
     {
