@@ -2,7 +2,7 @@ function myRequest(url: string) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(url)
-    }, 1000)
+    }, 3000)
   })
 }
 
@@ -19,6 +19,9 @@ function limitRequest(urls: string[] = [], limit: number = 3) {
     }
 
     function start() {
+      if (!urls.length) {
+        return
+      }
       const url = urls.shift() // 从数组中拿取第一个任务
       console.log('start-task', url);
       if (url) {
