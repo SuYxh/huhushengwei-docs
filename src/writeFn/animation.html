@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .animation {
+        position: relative;
+        width: 100px;
+        height: 100px;
+      }
+
+      .box {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-radius: 12px;
+        transition: all 0.2s;
+      }
+
+      .map {
+        width: 100px;
+        height: 100px;
+        /* background-color: #42b983; */
+        position: relative;
+      }
+
+      .box2 {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        position: absolute;
+        transition: all 0.2s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="animation">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <div class="map">
+      <div class="box2 a">1</div>
+      <div class="box2 b">2</div>
+      <div class="box2 c">3</div>
+      <div class="box2 d">4</div>
+    </div>
+    <script>
+      const position = [
+        {
+          left: 0,
+          top: 0,
+        },
+        {
+          left: 55,
+          top: 0,
+        },
+        {
+          left: 55,
+          top: 55,
+        },
+        {
+          left: 0,
+          top: 55,
+        },
+      ]
+
+      const pics = [
+        'https://pic3.zhuanstatic.com/zhuanzh/bf1f2ce1-e824-4fc4-9c6d-4bdc15ac82d0.png',
+        'https://pic4.zhuanstatic.com/zhuanzh/129e2dda-7fa6-480f-8c7c-153935446b7d.png',
+        'https://pic5.zhuanstatic.com/zhuanzh/7a18c22a-e7c4-4a62-9173-df97e2b2dcca.png',
+        'https://pic3.zhuanstatic.com/zhuanzh/f26afa60-3c21-4c5f-9406-47de8fafc5af.png',
+        'https://pic3.zhuanstatic.com/zhuanzh/d06fad25-f376-466b-85e6-bff1e0fd58f0.png',
+        'https://pic2.zhuanstatic.com/zhuanzh/e6e7b232-e196-4c00-ab94-f2b222bc1231.png',
+        'https://pic5.zhuanstatic.com/zhuanzh/1f2a834c-8e2c-47e3-b460-69a60493f820.png',
+        'https://pic4.zhuanstatic.com/zhuanzh/725c07b6-904c-4ef2-baad-2ae7e463ec72.png',
+        'https://pic6.zhuanstatic.com/zhuanzh/5c2c0121-3139-4402-976d-fb334241b698.png',
+        'https://pic4.zhuanstatic.com/zhuanzh/b564d232-88eb-41dd-a077-70cb3d5ff5c6.png',
+        'https://pic1.zhuanstatic.com/zhuanzh/4b658a56-0fdb-48ce-a518-8c91b03a4d76.png',
+        'https://pic1.zhuanstatic.com/zhuanzh/071d7e69-aa29-4cd5-b8d6-9a552de79d9f.png'
+      ]
+
+      function getRealPX (px) {
+        return ((px * 320) / 750 / 16) * 1 * ((document.documentElement.clientWidth / 320) * 16)
+      }
+
+      function startAnimate () {
+        const length = pics.length
+        const boxs = Array.from(document.querySelectorAll('.box'))
+
+        boxs.forEach((item, index) => {
+          item.style.top = getRealPX(position[index].top) + 'px'
+          item.style.left = getRealPX(position[index].left) + 'px'
+          item.style.backgroundImage = `url(${pics[index]})`
+        })
+
+        let times = 4
+
+        setInterval(() => {
+          times++
+
+          boxs[0].style.transform = 'scale(0)'
+
+          setTimeout(() => {
+            boxs[0].style.transform = 'scale(1)'
+            boxs[0].style.backgroundImage = `url(${pics[times % length]})`
+          }, 200)
+
+          setTimeout(() => {
+            const temp = boxs.pop()
+            boxs.unshift(temp)
+            boxs.forEach((item, index) => {
+              item.style.top = getRealPX(position[index].top) + 'px'
+              item.style.left = getRealPX(position[index].left) + 'px'
+            })
+          }, 300)
+        }, 2000)
+      }
+
+      setTimeout(() => {
+        console.log('开始动画！')
+        startAnimate()
+      }, 2000);
+
+
+      // ---------------------------------------
+      const position2 = [
+        {
+          left: 0,
+          top: 0
+        },
+        {
+          left: 50,
+          top: 0
+        },
+        {
+          left: 50,
+          top: 50
+        },
+        {
+          left: 0,
+          top: 50
+        },
+      ]
+      function startAnimate2 () {
+        const boxs = Array.from(document.querySelectorAll('.box2'))
+        boxs.forEach((item, index) => {
+          item.style.top = position2[index].top + 'px'
+          item.style.left = position2[index].left + 'px'
+        })
+
+        let a = 10
+        setInterval(() => {
+          a++
+
+          boxs[0].style.transform = 'scale(0)'
+
+          setTimeout(() => {
+            boxs[0].style.transform = 'scale(1)'
+            boxs[0].innerText = a
+          }, 200)
+
+          setTimeout(() => {
+            // let temp = boxs.pop()
+            // boxs.unshift(temp)
+            let temp = boxs.shift()
+            boxs.push(temp)
+            boxs.forEach((item, index) => {
+              item.style.top = position2[index].top + 'px'
+              item.style.left = position2[index].left + 'px'
+            })
+          }, 300)
+        }, 2000)
+      }
+
+      setTimeout(() => {
+        console.log('开始动画！')
+        startAnimate2()
+      }, 1000);
+    </script>
+  </body>
+
+</html>
