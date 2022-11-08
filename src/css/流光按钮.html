@@ -1,0 +1,48 @@
+<!--
+ * @Author: 时光@
+ * @Date: 2022-11-09 00:05:21
+ * @LastEditTime: 2022-11-09 00:06:27
+ * @Description:  CSS3中animation实现流光按钮效果
+ https://juejin.cn/post/7144608703444942862
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      .div2 {
+        position: absolute;
+        left: calc(50% - 150px);
+        top: calc(50% - 150px);
+        width: 300px;
+        height: 100px;
+        border-radius: 50px;
+        text-align: center;
+        background-color: aqua;
+        line-height: 100px;
+        background-image: linear-gradient(to left, #EAD6EE, #A0F1EA, rgb(124, 241, 241), #e3a5f0, #EAD6EE);
+        background-size: 400%;
+      }
+
+      @keyframes run {
+        100% {
+          background-position: 400% 0px;
+        }
+      }
+
+      .div2:hover {
+        animation: run 4s linear 0s infinite;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="div2">
+      Let's Go
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>animation</title>
+    <style>
+      .step2 {
+        width: 200px;
+        height: 312px;
+        margin: 50px;
+        background: red;
+        animation: move 3s steps(1, end) infinite;
+      }
+
+      @keyframes move {
+        0% {
+          background: purple;
+          /*紫色*/
+        }
+
+        50% {
+          background: blue;
+          /*蓝色*/
+        }
+
+        100% {
+          background: red;
+          /*红色*/
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="step2"></div>
+  </body>
+
+</html>
