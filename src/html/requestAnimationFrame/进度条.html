@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .progress-wrap {
+        position: relative;
+        width: 300px;
+        height: 32px;
+        margin: 100px;
+        background-color: #eee;
+        border-radius: 20px;
+        line-height: 32px;
+        text-align: center;
+      }
+
+      .progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: aquamarine;
+        border-radius: 20px;
+      }
+
+      .progress-num {
+        position: relative;
+        z-index: 9;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <body>
+
+      <div class="progress-wrap">
+        <div class="progress-bar" style="width: 0px;height:32px;"></div>
+        <span class="progress-num">0%</span>
+      </div>
+
+      <script>
+        const progressWrap= document.querySelector('.progress-wrap')
+        const progressBar = document.querySelector('.progress-bar')
+        const progressNum = document.querySelector('.progress-num')
+
+        progressWrap.onclick = function () {
+
+          let timer = requestAnimationFrame(function fn () {
+            if (parseInt(progressBar.style.width) < 300) {
+              progressBar.style.width = parseInt(progressBar.style.width) + 3 + 'px';
+              progressNum.innerHTML = parseInt(progressBar.style.width) / 3 + '%'
+              timer = requestAnimationFrame(fn)
+            } else {
+              cancelAnimationFrame(timer)
+            }
+          })
+
+        }
+
+      </script>
+    </body>
+
+  </body>
+
+</html>

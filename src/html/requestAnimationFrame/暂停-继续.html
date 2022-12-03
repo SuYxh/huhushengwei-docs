@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #animated {
+        position: absolute;
+        left: 10px;
+        padding: 50px;
+        background: crimson;
+        color: white;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button onclick="start()">Click me to start!</button>
+    <button onclick="stop()">Click me to stop!</button>
+    <button onclick="continu()">Click me to continue!</button>
+    <div id="animated">
+      <p>Hello there.</p>
+      <p class="time"></p>
+    </div>
+    <script>
+      var requestId = 0,
+        animationStartTime = 0,
+        stoppedAt = 0;
+        curentTime = 0
+
+      function animate (time) {
+        curentTime = time - animationStartTime
+        document.querySelector('.time').innerText = Math.floor(curentTime)
+
+        document.getElementById("animated").style.left =
+          (time - animationStartTime) % 3000 / 4 + "px";
+        requestId = window.requestAnimationFrame(animate);
+      }
+
+      function start () {
+        animationStartTime = window.performance.now();
+        requestId = window.requestAnimationFrame(animate);
+      }
+
+      function stop () {
+        if (requestId) {
+          window.cancelAnimationFrame(requestId);
+          // Stop point timestamp
+          stoppedAt = window.performance.now();
+        }
+      }
+
+      function continu () {
+        // Adding stoppage time to start time. 
+        animationStartTime += window.performance.now() - stoppedAt;
+        requestId = window.requestAnimationFrame(animate);
+      }
+
+    </script>
+  </body>
+
+</html>

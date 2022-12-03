@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #some-element-you-want-to-animate {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        background-color: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="some-element-you-want-to-animate">
+      <button onClick="startFn()">start</button>
+      <button onclick="overFn()">over</button>
+    </div>
+    <script>
+      const element = document.getElementById('some-element-you-want-to-animate');
+      let start, previousTimeStamp;
+      let done = false
+      let num = 0
+      let rafId
+
+      function step (timestamp) {
+        console.log('timestamp', Math.floor(timestamp), timestamp)
+
+        if (start === undefined) {
+          start = timestamp;
+        }
+        const elapsed = timestamp - start;
+
+        if (previousTimeStamp !== timestamp) {
+          // 这里使用 `Math.min()` 确保元素刚好停在 200px 的位置。
+          const count = Math.min(0.1 * elapsed, 200);
+          element.style.transform = 'translateX(' + count + 'px)';
+          if (count > 100) {
+            console.log('cancelAnimationFrame', rafId)
+            cancelAnimationFrame(rafId)
+            return
+          }
+          if (count === 200) done = true;
+        }
+
+        if (elapsed < 20000) { // 在两秒后停止动画
+          previousTimeStamp = timestamp;
+          if (!done) {
+            rafId = window.requestAnimationFrame(step);
+          }
+          if (done) {
+            console.log('cancelAnimationFrame')
+            cancelAnimationFrame(rafId)
+          }
+        }
+      }
+
+
+
+      function startFn() {
+        console.log('strat', rafId)
+        rafId = window.requestAnimationFrame(step);
+      }
+
+
+      function overFn() {
+        console.log('over')
+        done = true
+      }
+
+    </script>
+  </body>
+
+</html>

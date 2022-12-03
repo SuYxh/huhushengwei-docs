@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟 setTimeout-setInterval</title>
+    <style>
+      .btn {
+        width: 100px;
+        height: 40px;
+        margin-bottom: 20px;
+        background-color: #eee;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="btn setTimeout"> setTimeout</div>
+    <div class="btn setInterval">setInterval</div>
+
+    <script>
+
+      function tick (options) {
+
+        let lastTime = 0
+        let rafId = 0
+        let callBackNum = 0
+
+        const step = (timestamp) => {
+          if (timestamp - lastTime > options.interval) {
+            options.cb()
+            lastTime = timestamp
+            callBackNum ++
+          }
+          if (options.type !== 'setTimeout' || callBackNum < 1 ) {
+            window.requestAnimationFrame(step)
+          }
+        }
+
+        const start = () => {
+          lastTime = performance.now()
+          window.requestAnimationFrame(step)
+        }
+
+        start()
+      }
+
+      function mySetTimeout () {
+        console.log('mySetTimeout')
+        tick({
+          type: 'setTimeout',
+          interval: 1000, 
+          cb: () => {
+            console.log('就 一次')
+          }
+        })
+      }
+
+      function mySetInterval () {
+        console.log('mySetInterval')
+        tick({
+          type: 'setInterval',
+          interval: 1000, 
+          cb: () => {
+            console.log(`2s 一次`)
+          }
+        })
+      }
+
+      document.querySelector('.setTimeout').addEventListener('click', () => {
+        mySetTimeout()
+      })
+
+      document.querySelector('.setInterval').addEventListener('click', () => {
+        mySetInterval()
+      })
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时调用</title>
+    <style>
+      .btn {
+        width: 100px;
+        height: 40px;
+        background-color: #eee;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <br>
+    <div class="btn start">start</div>
+    <div class="btn stop">stop</div>
+    <div class="btn continu"> continu</div>
+    <script>
+      // sample_time.js
+      // const [period, offset] = [50, 5]
+      let lastTime = 0
+      let startTime = 0
+      let counting = false
+      let rafId = 0,
+        stopAt = 0,
+        intervel = 0
+
+      const render = (timestamp) => {
+        if (counting) {
+          if (timestamp - lastTime > intervel) {
+            time = timestamp - startTime
+            console.log(`do at = ${ Math.floor(time) } -- ${timestamp}`)
+            lastTime = timestamp
+          }
+          requestAnimationFrame(render)
+        } else {
+          console.log('animation finished')
+        }
+      }
+
+
+
+      const start = (period, offset) => {
+        console.log('start')
+        lastTime = performance.now()
+        startTime = performance.now()
+        intervel = period
+        counting = true
+        console.log(`start time = ${lastTime}`)
+        rafId = requestAnimationFrame(render)
+      }
+
+      function stop () {
+        console.log('stop')
+        counting = false
+        if (rafId) {
+          window.cancelAnimationFrame(rafId);
+          stoppedAt = window.performance.now();
+        }
+      }
+
+      function continu () {
+        console.log('continu')
+        counting = true
+        // Adding stoppage time to start time. 
+        startTime += window.performance.now() - stoppedAt;
+        rafId = window.requestAnimationFrame(render);
+      }
+
+      document.querySelector('.start').addEventListener('click', () => {
+        start(1000)
+      })
+
+      document.querySelector('.stop').addEventListener('click', () => {
+        stop()
+      })
+
+      document.querySelector('.continu').addEventListener('click', () => {
+        continu()
+      })
+
+    </script>
+  </body>
+
+</html>

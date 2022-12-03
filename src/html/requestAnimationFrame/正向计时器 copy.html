@@ -1,0 +1,100 @@
+<!--
+ * @Author: 时光@
+ * @Date: 2022-12-02 23:04:07
+ * @LastEditTime: 2022-12-02 23:04:07
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">hello world</div>
+    <div id="status">这里显示倒计时状态</div>
+
+    <br />
+
+    <script>
+
+      const useCountUp = (options) => {
+        let rafId;
+        let endTime;
+        let remain = options.time;
+        const getCurrentRemain = () => {
+          console.log('getCurrentRemain-->', `endTime: ${endTime}`, `endTime - Date.now(): ${endTime - Date.now()}` , Math.max(endTime - Date.now(), 0))
+          return Math.max(endTime - Date.now(), 0)
+        };
+
+        const start = () => {
+          console.log('tick - zhixing')
+          endTime = Date.now() + remain;
+          tick();
+        };
+
+        const microTick = () => {
+          console.log('microTick zhixing')
+          rafId = setTimeout(() => {
+            console.log('microTick zhixing - setTimeout-1', remain)
+            setRemain(getCurrentRemain());
+            console.log('microTick zhixing - setTimeout-2', remain)
+
+            if (remain > 0) {
+              console.log('microTick zhixing - remain', remain)
+              microTick();
+            }
+          }, 16.67);
+        }
+
+        const macroTick = () => {
+          rafId = setTimeout(() => {
+            const remainRemain = getCurrentRemain();
+            if (!isSameSecond(remainRemain, remain) || remainRemain === 0) {
+              setRemain(remainRemain);
+            }
+
+            if (remain > 0) {
+              macroTick();
+            }
+          }, 16.67);
+        }
+
+        const tick = () => {
+          console.log('tick - zhixing')
+          if (options.millisecond) {
+            microTick();
+          }
+          else {
+            macroTick();
+          }
+        }
+
+        const setRemain = (value) => {
+          remain = value;
+          if (options.onChange) {
+            options.onChange(remain);
+          }
+        }
+
+        tick();
+
+        return {
+          start,
+        }
+      }
+
+      const { start } = useCountUp({
+        time: 5 * 1000, millisecond: true, onChange: (res) => {
+          console.log('倒计时变化了', res);
+        }
+      });
+      // start();
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 进入前和离开后的状态 */
+      .enter-from,
+      .leave-to {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+
+      /* 进入过程中和离开过程中的状态 */
+      .enter-active,
+      .leave-active {
+        transition: opacity 0.5s linear, transform 0.3s ease;
+      }
+
+      /* 进入后，和离开的状态 */
+      .enter-to,
+      .leave-from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+
+  <body><button id="operate-btn">进入按钮</button><button id="leave-btn">离开按钮</button>
+    <script>
+      // 进入function 
+      function createElement () {
+        let box = document.createElement("div"); box.style.width = 100 + "px"; box.style.height = 100 + "px"; box.style.background = "#008c8c"; box.classList.add("enter-from"); box.classList.add("enter-active"); document.body.appendChild(box); box.classList.remove("enter-from"); box.classList.add("enter-to");
+        box.addEventListener("transitionend", () => {// 过度完成，删除类名
+          box.classList.remove("enter-to"); box.classList.remove("enter-active");
+        });
+      };
+      // 隐藏function 
+      function removeElement () {
+        let element = document.getElementsByTagName("div")[0]; element.classList.add("leave-from"); element.classList.add("leave-active"); element.classList.add("leave-to"); element.classList.remove("leave-from"); element.addEventListener("transitionend", () => {
+          document.body.removeChild(element);
+          // 过度完成，删除类名
+          box.classList.remove("leave-to"); box.classList.remove("leave-active");
+        });
+      } let btn = document.getElementById("operate-btn"); let leaveBtn = document.getElementById("leave-btn"); btn.addEventListener("click", createElement); leaveBtn.addEventListener("click", removeElement); 
+    </script>
+  </body>
+
+</html>

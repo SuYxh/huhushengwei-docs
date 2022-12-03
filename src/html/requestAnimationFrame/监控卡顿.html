@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监控卡顿</title>
+  </head>
+
+  <body>
+    <script>
+      let lastTime = performance.now()
+      let frame = 0
+      let lastFameTime = performance.now()
+      
+      let loop = function (time) {
+        let now = performance.now()
+        let fs = now - lastFameTime
+        lastFameTime = now
+        let fps = Math.round(1000 / fs)
+        frame++
+        if (now > 1000 + lastTime) {
+          let fps = Math.round((frame * 1000) / (now - lastTime))
+          frame = 0
+          lastTime = now
+        }
+        window.requestAnimationFrame(loop)
+      }
+
+    </script>
+  </body>
+
+</html>
