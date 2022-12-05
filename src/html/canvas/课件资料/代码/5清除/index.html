@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="600px" height="400px"></canvas>
+
+  <br><br>
+
+  <button onclick="handleClean()">clean</button>
+
+  <script>
+    /** @type {HTMLCanvasElement} */
+    const canvas = document.querySelector("#canvas")
+    const ctx = canvas.getContext('2d')
+    console.log('ctx', ctx)
+    ctx.strokeRect(100, 100, 200, 100)
+    ctx.fillRect(200, 150, 200, 100)
+
+    function handleClean() {
+      let height = 0
+      let timer = setInterval(() => {
+        height++
+        ctx.clearRect(0,0, canvas.clientWidth, height)
+        if (height > canvas.clientHeight) {
+          clearInterval(timer)
+        }
+      }, 10);
+    }
+
+
+
+  </script>
+</body>
+</html>
