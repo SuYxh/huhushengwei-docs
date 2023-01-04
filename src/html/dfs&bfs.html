@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      const bst = {
+        value: 5,
+        left: {
+          value: 3,
+          left: {
+            value: 2,
+            left: null,
+            right: null
+          },
+          right: {
+            value: 4,
+            left: null,
+            right: null,
+          }
+        },
+        right: {
+          value: 7,
+          left: {
+            value: 6,
+            left: null,
+            right: null
+          },
+          right: {
+            value: 8,
+            left: null,
+            right: null
+          }
+        }
+      }
+
+
+      /**
+       * @description: 先顺遍历 -- 递归
+       * @param {*} root
+       * @return {*}
+       */
+      function preOrderTraverse (root) {
+        // 递归边界，root 为空
+        if (!root) {
+          return
+        }
+        // 输出当前遍历的结点值
+        console.log('当前遍历的结点值是：', root.value)
+        // 递归遍历左子树 
+        preOrderTraverse(root.left)
+        // 递归遍历右子树  
+        preOrderTraverse(root.right)
+      }
+
+      // preOrderTraverse(bst)
+
+
+
+      /**
+       * @description: 深度优先遍历 -- 栈
+       * @param {*} root
+       * @return {*}
+       */
+      function dfs (root) {
+        if (!root) {
+          return
+        }
+        // 初始化 栈
+        const stack = []
+        stack.push(root)
+
+        while (stack.length) {
+          // 出栈
+          const item = stack.pop()
+
+          // 输出当前遍历的结点值
+          console.log(item.value)
+
+          // 入栈
+          if (item.right) {
+            stack.push(item.right)
+          }
+
+          if (item.left) {
+            stack.push(item.left)
+          }
+        }
+      }
+
+      // dfs(bst)
+
+
+      /**
+       * @description: 广度优先遍历 -- 队列
+       * @param {*} root
+       * @return {*}
+       */
+      function bfs (root) {
+        if (!root) {
+          return
+        }
+
+        // 初始化队列queue
+        const queue = []
+
+        // 入队
+        queue.push(root)
+
+        // 队列不为空，说明没有遍历完
+        while (queue.length) {
+          // 取出队头元素  
+          const top = queue[0] 
+
+          // 输出当前遍历的结点值
+          console.log(top.value)
+
+          if (top.left) {
+            queue.push(top.left)
+          }
+
+          if (top.right) {
+            queue.push(top.right)
+          }
+
+          // 队头元素出队
+          queue.shift()
+        }
+      }
+
+      // bfs(bst)
+
+    </script>
+  </body>
+
+</html>
