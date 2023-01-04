@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <img style="width: 100%;" src="https://qn.huat.xyz/mac/20221212173515.awebp" alt="">
+    <script>
+      /************************** 转换到 布尔 **************************/
+      const nan = 0 / 0
+      console.log(nan, typeof nan, !!nan)
+
+      /************************** 转换到 字符串 **************************/
+      console.log(typeof (true).toString())
+      function fn (params) {
+
+      }
+      console.log(fn.toString())
+      console.log(Symbol('7').toString())
+      console.log([1, 2, 3].toString())
+      console.log({ name: "yxh", age: 18 }.toString())
+      console.log((16).toString(2))
+
+      /************************** 转换到 数字 **************************/
+      console.log('/************************** 转换到 数字 **************************/')
+      console.log(Number('a'))
+      console.log(Number([]), Number([12]), Number([12, 13]), Number([12, 'a']))
+      console.log(Number({ name: "jarvis", age: 22 }))
+
+
+      let a = {
+        valueOf () {
+          return 0
+        },
+        toString () {
+          return '1'
+        },
+        // [Symbol.toPrimitive] () {
+        //   // return 2
+        // }
+      }
+      console.log(1 + a)
+
+      console.log( + 'b' )
+      console.log(undefined + 'b' )
+      console.log(null + 'b' )
+      console.log('' + 'b' )
+      console.log(String(undefined))
+      console.log(String(null))
+      console.log(+ '0', typeof + '0')
+
+
+
+
+    </script>
+  </body>
+
+</html>
