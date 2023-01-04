@@ -1,1 +1,0 @@
-import{o as n,c as s,b as a}from"./app.157864df.js";const t='{"title":"生命周期","description":"","frontmatter":{},"headers":[{"level":3,"title":"生命周期","slug":"生命周期"}],"relativePath":"frame/react/4.生命周期.md","lastUpdated":1662433250869}',p={},o=[a('',3)];p.render=function(a,t,p,e,c,u){return n(),s("div",null,o)};export default p;export{t as __pageData};
