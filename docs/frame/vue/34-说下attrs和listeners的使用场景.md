@@ -2,7 +2,7 @@
 
 ### 分析
 
-API考察，但attrs和*a**t**t**r**s*和listeners是比较少用的边界知识，而且vue3有变化，$listeners已经移除，还是有细节可说的。
+API考察，但attrs和listeners是比较少用的边界知识，而且vue3有变化，$listeners已经移除，还是有细节可说的。
 
 ### 思路
 

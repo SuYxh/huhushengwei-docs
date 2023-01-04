@@ -141,7 +141,7 @@ module.exports = function getFrameSidebar() {
         },
         {
           text: '34-说下$attrs和$listeners的使用场景',
-          link: '/frame/vue/34-说下$attrs和$listeners的使用场景'
+          link: '/frame/vue/34-说下attrs和listeners的使用场景'
         },
         {
           text: '35-v-once的使用场景有哪些',
