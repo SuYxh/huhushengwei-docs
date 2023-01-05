@@ -37,6 +37,10 @@
 // import { funcTest } from './writeFn/LRU'
 
 // import { funcTest } from './algorithm/linkList/SingleLinkedList/index';
-import { funcTest } from './algorithm/linkList/DoublyLinkedList/index';
+// import { funcTest } from './algorithm/linkList/DoublyLinkedList/index';
 
-funcTest()
+// funcTest()
+
+
+import { funcPlayGround } from '../playGround'
+funcPlayGround()
