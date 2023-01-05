@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function _new () {
+        let newObject = null,
+          constructor = Array.prototype.shift.call(arguments)
+        result = null
+        // 参数判断
+        if (typeof constructor !== 'function') {
+          console.error('type error')
+          return
+        }
+        // 新建一个空对象，对象的原型为构造函数的 prototype 对象
+        newObject = Object.create(constructor.prototype)
+        // 将 this 指向新建对象，并执行函数
+        result = constructor.apply(newObject, arguments)
+        // 判断返回对象
+        let flag =
+          result && (typeof result === 'object' || typeof result === 'function')
+        // 判断返回结果
+        return flag ? result : newObject
+      }
+
+      function Animal (name) {
+        this.name = name
+      }
+
+
+      const dog1 = _new(Animal, "旺财")
+      const dog2 = new Animal('阿福')
+
+      console.log(dog1 instanceof Animal)
+      console.log(dog2 instanceof Animal)
+
+    </script>
+  </body>
+
+</html>
