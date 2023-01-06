@@ -39,3 +39,29 @@ const isValid = function (s) {
 }
 
 console.log(isValid('()[]{}'))
+
+
+
+
+
+function effective(s) {
+  if (!s) {
+    return true
+  }
+  const stack = []
+
+  for (let i = 0; i < s.length; i++) {
+    const chat = s[i];
+    if (chat === '(' ||chat === '[' ||chat === '{'  ) {
+      stack.push(leftToRight[chat])
+    } else {
+      if (!stack.length || stack.pop() !== chat ) {
+        return false
+      }
+    }
+  }
+
+  return !stack.length
+}
+
+console.log(effective('()[]{}'))
