@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .card {
+        box-sizing: border-box;
+        width: 70vw;
+        min-height: 200vh;
+        margin: 50px 0 50px 50px;
+        color: rgba(255, 255, 255, 0.8);
+        
+        font-family: sans-serif;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        border-left: 1px solid rgba(255, 255, 255, 0.4);
+        background: linear-gradient(to top right,
+            rgba(90, 149, 207, 0.5),
+            rgba(58, 76, 99, 0.8));
+        box-shadow: 10px -10px 20px rgba(0, 0, 0, 0.2),
+          -10px 10px 20px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(6px);
+        /*  元素后面区域添加模糊效果 */
+        border-radius: 20px;
+        /* transform: rotate(-15deg); */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card"></div>
+
+    <script>
+      /**
+       * https://segmentfault.com/a/1190000021720064
+      */
+      function throttle(fn, delay) {
+        let last = 0 
+
+        return function () {
+          const context = this
+          const  arg = arguments
+          let now = +new Date()
+
+          if (now-last > delay) {
+            last = now
+            fn.apply(context, arg)
+          }
+        }
+      }
+
+
+      function debounce(fn, delay) {
+        let timer= null 
+        return function () {
+          const context = this
+          const args = arguments
+          
+          if (timer) {
+            clearTimeout(timer)
+          }
+
+          timer = setTimeout(() => {
+            fn.apply(context, args)
+          }, delay);
+
+        }
+      }
+
+
+      function throttleAndDebounce(fn, delay) {
+        let last, timer
+        return function () {
+          const context = this 
+          const args = arguments
+          const now = +new Date()
+
+          if (now - last < delay) {
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+              last = now
+              fn.apply(context, args)
+            }, delay);
+          } else {
+            last = now
+            fn.apply(context, args)
+          }
+
+        }
+      }
+
+
+      function handleScroll() {
+        console.log('handleScroll')
+      }
+
+      const handleScrollByThrottle = throttle(handleScroll, 200)
+
+      window.addEventListener('scroll', handleScrollByThrottle)
+
+      window.addEventListener('scroll', handleScroll)
+
+    </script>
+  </body>
+
+</html>
