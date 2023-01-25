@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+
+      // 通过【某种方式】让一个对象可以访问到另一个对象中的属性和方法，我们把这种方式称之为继承
+      function Super() {
+        this.text = '这是原型链继承'
+        this.colors = ['red', 'green', 'blue'];
+      }
+      Super.prototype.getValue = function () {
+        return this.colors
+      }
+      Super.prototype.getText = function () {
+        return this.text
+      }
+
+      function Sub() {
+
+      }
+
+      Sub.prototype = new Super()
+      Sub.prototype.constroctor = Sub
+
+      let subInstaracne = new Sub()
+      let subInstaracneTwo = new Sub()
+
+      subInstaracne.colors.push("black")
+      console.log(subInstaracne instanceof Super)
+      console.log('subInstaracne', subInstaracne.colors)
+      console.log('subInstaracneTwo', subInstaracneTwo.colors)
+
+
+
+
+      /*       console.log(subInstaracne.__proto__)
+            // console.log(Object.getPrototypeOf(subInstaracne))
+            console.log(subInstaracne.__proto__.__proto__)
+            console.log(subInstaracne.__proto__.__proto__.constructor === Super) */
+
+
+
+
+
+    </script>
+  </body>
+
+</html>

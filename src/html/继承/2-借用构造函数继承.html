@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function Super(name) {
+        this.colors = ['red', 'green', 'blue'];
+        this.name = name
+      }
+      Super.prototype.getValue = function () {
+        return this.colors;
+      }
+      function Sub(name) {
+        Super.call(this, name)
+      }
+
+      let instance = new Sub('yxh')
+      let instanceTwo = new Sub('jarvis')
+
+      instance.colors.push("black")
+
+
+      console.log(instance.colors)
+      console.log(instanceTwo.colors)
+
+      console.log(instance.__proto__)
+      console.log(instance instanceof Super)
+
+
+    </script>
+  </body>
+
+</html>

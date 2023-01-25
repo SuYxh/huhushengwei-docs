@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // Shape - 父类(superclass)
+      function Shape() {
+        this.x = 0;
+        this.y = 0;
+      }
+
+      // 父类的方法
+      Shape.prototype.move = function (x, y) {
+        this.x += x;
+        this.y += y;
+        console.info('Shape moved.');
+      };
+
+      // Rectangle - 子类(subclass)
+      function Rectangle() {
+        Shape.call(this); // call super constructor.
+      }
+
+      // 实现多重继承
+      function MyClass() {
+        SuperClass.call(this);
+        OtherSuperClass.call(this);
+      }
+
+      // 继承一个类
+      MyClass.prototype = Object.create(SuperClass.prototype);
+      // 混合其它
+      Object.assign(MyClass.prototype, OtherSuperClass.prototype);
+      // 重新指定constructor
+      MyClass.prototype.constructor = MyClass;
+
+      MyClass.prototype.myMethod = function () {
+        // do a thing
+      };
+    </script>
+  </body>
+
+</html>
