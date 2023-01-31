@@ -13,7 +13,7 @@
         min-height: 200vh;
         margin: 50px 0 50px 50px;
         color: rgba(255, 255, 255, 0.8);
-        
+
         font-family: sans-serif;
         text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -37,16 +37,37 @@
     <script>
       /**
        * https://segmentfault.com/a/1190000021720064
+       * 
+       * 下面简单列出两者的应用场景都有哪些：
+
+**防抖（debounce）应用场景：**
+
+- 每个调整大小/滚动都会触发统计事件。
+- 验证文本输入（在连续文本输入后，发送`Ajax`请求进行验证）。
+- 监视滚动`scroll`事件（在添加去抖动后滚动，只有在用户停止滚动后才会确定它是否已到达页面底部）。
+
+**节流（throttle）应用场景：**
+
+- 实现DOM元素的拖放功能`mousemove`。
+- 搜索关联`keyup`。
+- 计算鼠标移动距离`mousemove`。
+- 画布模拟草图功能`mousemove`。
+- 射击游戏中的 `mousedown/keydown`事件（每单位时间只能发射一颗子弹）。
+- 监视滚动`scroll`事件（添加节流后，只要滚动页面，就会每隔一段时间才会计算）。
+
+
+
+**最后，节流（throttle）旨在时间段内控制触发的频率；防抖（debounce）旨在时间段内只触发最后一次。**
       */
-      function throttle(fn, delay) {
-        let last = 0 
+      function throttle (fn, delay) {
+        let last = 0
 
         return function () {
           const context = this
-          const  arg = arguments
+          const arg = arguments
           let now = +new Date()
 
-          if (now-last > delay) {
+          if (now - last > delay) {
             last = now
             fn.apply(context, arg)
           }
@@ -54,12 +75,12 @@
       }
 
 
-      function debounce(fn, delay) {
-        let timer= null 
+      function debounce (fn, delay) {
+        let timer = null
         return function () {
           const context = this
           const args = arguments
-          
+
           if (timer) {
             clearTimeout(timer)
           }
@@ -72,10 +93,10 @@
       }
 
 
-      function throttleAndDebounce(fn, delay) {
+      function throttleAndDebounce (fn, delay) {
         let last, timer
         return function () {
-          const context = this 
+          const context = this
           const args = arguments
           const now = +new Date()
 
@@ -94,7 +115,7 @@
       }
 
 
-      function handleScroll() {
+      function handleScroll () {
         console.log('handleScroll')
       }
 
