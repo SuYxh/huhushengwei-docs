@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      img {
+        max-width: 100%;
+      }
+
+      #imgCover {
+        width: 100px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 参考： 
+      图片合成水印：  https://juejin.cn/post/7167364161461026852 
+      使用canvas给上传的整张图片添加平铺的水印： https://juejin.cn/post/7168790987093835789
+    -->
+
+    <input type="file" id="uploadFile" accept="image/*">
+    <img id="imgCover"
+      src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/211a1a5980f94f0095a46017e9bc9755~tplv-k3u1fbpfcp-watermark.image?"
+      crossorigin="anonymous">
+    <p>
+      <img
+        src="https://pic4.zhuanstatic.com/zhuanzh/b8b55ba7-7001-4974-873a-5c63b7f5fc31.jpg"
+        id="result" crossorigin="anonymous">
+    </p>
+
+    <script>
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      uploadFile.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        const img = new Image();
+        img.setAttribute('crossOrigin', 'anonymous');
+        img.src = URL.createObjectURL(file);
+        img.onload = e => compose(img, file.type);
+      });
+
+      function compose (img, type) {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        ctx.transform(1, 0.5, -0.5, 1, 0, -canvas.height / 2);
+        ctx.rect(0, 0, canvas.width * 2, canvas.height * 2);
+        ctx.fillStyle = ctx.createPattern(imgCover, 'repeat');
+        ctx.fill();
+        setTimeout(e => {
+          result.src = canvas.toDataURL(type);
+          URL.revokeObjectURL(img.src);
+        })
+      }
+
+      compose(result);
+    </script>
+  </body>
+
+</html>

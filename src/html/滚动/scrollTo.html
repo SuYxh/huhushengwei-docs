@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollTo</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        height: 300vh;
+        width: 200vw;
+      }
+
+      .box {
+        box-sizing: border-box;
+        width: 300px;
+        height: 700px;
+        margin: 30px 0 0 20px;
+        background-color: #f8f8f8;
+        border-radius: 16px;
+        overflow: auto;
+      }
+
+      .box-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 260px;
+        height: 50px;
+        margin: 24px auto;
+        background-color: #eee;
+        border-radius: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="box">
+      <div class="box-item">1</div>
+      <div class="box-item">2</div>
+      <div class="box-item">3</div>
+      <div class="box-item">4</div>
+      <div class="box-item">5</div>
+      <div class="box-item">6</div>
+      <div class="box-item">7</div>
+    </div>
+
+    <script>
+
+      // scrollBy() 方法是使得元素滚动一段特定距离的 Element 接口。
+      const element = document.querySelector('.box')
+
+      window.addEventListener('load', () => {
+        computedHeight()
+        handleScroll()
+      })
+
+      function computedHeight () {
+        const offsetTop = element.offsetTop
+        const scrollTop = element.scrollTop
+        const clientHeight = element.clientHeight
+        const scrollHeight = element.scrollHeight
+        console.log('scrollTop', scrollTop, '--', 'clientHeight', clientHeight, '--', 'scrollHeight', scrollHeight, '--', 'offsetTop', offsetTop)
+        console.log('是否到底：', scrollTop + clientHeight === scrollHeight)
+      }
+
+      function handleScroll (params) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: 500,
+            left: 0,
+            behavior: 'smooth'
+          })
+        }, 2000);
+      }
+
+    </script>
+  </body>
+
+</html>

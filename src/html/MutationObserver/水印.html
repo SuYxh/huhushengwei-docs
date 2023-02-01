@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <img
+        src="https://pic3.zhuanstatic.com/zhuanzh/5cad2d3f-61a8-4184-a0a3-5cd3bfea006e.png"
+        alt="正在加载"
+        width="400"
+      />
+
+    <script>
+      function watermark (text1, text2) {
+        let canvas = document.createElement('canvas')
+        canvas.width = 150
+        canvas.height = 120
+        canvas.style.display = 'none'
+        let shuiyin = canvas.getContext('2d')
+        // 控制文字的旋转角度和上下位置
+        shuiyin.rotate(-20 * Math.PI / 180)
+        shuiyin.translate(-50, 20)
+        // 文字颜色
+        shuiyin.fillStyle = '#dedede'
+        // 文字样式
+        shuiyin.font = '100 16px "PingFang SC", "Microsoft YaHei", Arial, sans-serif '
+        shuiyin.fillText(text1, canvas.width / 3, canvas.height / 2)
+        shuiyin.fillText(text2, canvas.width / 3, canvas.height / 2 + 20)
+        /* 新建一个用于填充canvas水印的标签，之所以没有直接在body上添加，
+             是因为z-index对个别内容影响，才考虑的不用body */
+        let watermark = document.createElement('div')
+        const styleStr = `
+            position:fixed !important;
+            top:0 !important;
+            left:0 !important;
+            width:100vw !important;
+            height:100vh !important;
+            z-index:99 !important;
+            pointer-events:none !important;
+            background-repeat:repeat !important;
+            mix-blend-mode: multiply !important;
+            background-image:url('${canvas.toDataURL('image/png')}') !important`
+        watermark.setAttribute('style', styleStr)
+        watermark.classList.add('watermark')
+        document.body.appendChild(watermark)
+
+        // 此方法是防止用户通过控制台修改样式去除水印效果
+        /* MutationObserver 是一个可以监听DOM结构变化的接口。 */
+        const observer = new MutationObserver((aa) => {
+          console.dir(aa)
+          const wmInstance = document.querySelector('.watermark')
+          if (!wmInstance) {
+            console.log('水印被删除了！！！')
+            document.body.appendChild(watermark)
+            return
+          }
+          if (wmInstance.getAttribute('style') !== styleStr) {
+            console.log('改水印样式了！！！')
+            wmInstance.setAttribute('style', styleStr)
+          }
+        })
+        observer.observe(document.body, {
+          childList: true, // 观察目标子节点的变化，是否有添加或者删除
+          attributes: true, // 观察属性变动
+          subtree: true // 观察后代节点，默认为 false
+        })
+      }
+
+      watermark('zhuanzhuan', '二手拯救世界')
+
+      // window.addEventListener('load', () => {
+      //   console.log('loaded')
+      //   // watermark('qwer', '你是qwer')
+      // })
+    </script>
+
+    <!-- 作者：bigtree
+  链接：https://juejin.cn/post/6989507940768022559
+  来源：稀土掘金
+  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 -->
+  </body>
+
+</html>
