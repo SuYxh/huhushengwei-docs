@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+      div {
+        width: 1210px;
+        margin: 200px auto;
+        color: red;
+        text-align: center;
+        font: 600 30px/30px "simsun";
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <script type="text/javascript">
+      let div = document.getElementsByTagName("div")[0];
+      let timer = setInterval(fn, 1);
+
+      function fn () {
+        let nowtime = new Date();
+        let future = new Date("2023/11/11 00:00:00");
+        let timeSum = future.getTime() - nowtime.getTime(); //获取时间差：发布会时间减去此刻的毫秒值
+        let day = parseInt(timeSum / 1000 / 60 / 60 / 24);
+        let hour = parseInt(timeSum / 1000 / 60 / 60 % 24);
+        let minu = parseInt(timeSum / 1000 / 60 % 60);
+        let sec = parseInt(timeSum / 1000 % 60);
+        let millsec = parseInt(timeSum % 1000);
+
+        //问题处理：所有的时间小于10的时候，在前面自动补0，毫秒值要补双0（比如如，把 8 秒改成 08 秒）
+        day = day < 10 ? "0" + day : day; //day小于10吗？如果小于，就补0；如果不小于，就是day本身
+        hour = hour < 10 ? "0" + hour : hour;
+        minu = minu < 10 ? "0" + minu : minu;
+        sec = sec < 10 ? "0" + sec : sec;
+        if (millsec < 10) {
+          millsec = "00" + millsec;
+        } else if (millsec < 100) {
+          millsec = "0" + millsec;
+        }
+        if (timeSum < 0) {
+          div.innerHTML = "距离双11还有00天00小时00分00秒000毫秒";
+          clearInterval(timer);
+          return;
+        }
+        div.innerHTML = "距离双11还有" + day + "天" + hour + "小时" + minu + "分" + sec + "秒" + millsec + "毫秒";
+      }
+    </script>
+  </body>
+
+</html>

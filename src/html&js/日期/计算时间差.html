@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算时间差</title>
+</head>
+<body>
+  <script>
+    /**
+     * @description: 计算时间差
+     * @param {*} date1
+     * @param {*} date2
+     * @return {*}
+     */    
+    function computeDateDiff(date1, date2) {
+      if (!date1 || !date2) {
+        console.log('computeDateDiff, 需要2个参数')
+        return 
+      }
+      const diffDate = (date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24);
+      console.log("date1和date2相差" + Math.floor(Math.abs(diffDate)) + "天");
+      return Math.floor(Math.abs(diffDate))
+    }
+
+    const date1 = new Date('2023-01-21');
+    const date2 = new Date();
+    computeDateDiff(date1, date2)
+    computeDateDiff(date2, date1)
+  </script>
+</body>
+</html>

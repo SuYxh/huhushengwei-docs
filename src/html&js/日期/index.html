@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内置对象--Date</title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      /**
+       * @description: Date() 基础api学习
+       * @return {*}
+       */      
+      const partingLine = '********************************************\n' + '\n'
+      
+      let nowTime = new Date();
+      console.log('nowTime', nowTime)
+      console.log('nowTime.getDate()', nowTime.getDate()) // 日  获取月份的第几天，取值为(1~31)，
+      console.log('nowTime.getMonth()', nowTime.getMonth()) // 月 获取那个月份 取值(0~11)
+      console.log('nowTime.getFullYear()', nowTime.getFullYear())  // 年分
+      console.log('nowTime.getDay()', nowTime.getDay()) //星期 获取星期几 取值(0~6)
+      console.log('nowTime.getHours()', nowTime.getHours()) //小时 ，获取小时 (0~23)
+      console.log('nowTime.getMinutes()', nowTime.getMinutes())  // 分钟  获取分钟，取值()
+      console.log('nowTime.getSeconds()', nowTime.getSeconds()) //秒
+      console.log('nowTime.getTime()', nowTime.getTime())   // 返回从1970-1-1 00:00:00 UTC（协调世界时）到该日期经过的毫秒数
+      console.log(partingLine)
+
+
+      // 日期格式化方法
+      // toDateString() 星期 月 日 年   Tue Apr 21 2020
+      // toLocaleDateString()  年/月/日   2020/4/21 
+      // toTimeString() 时 分 秒 时区   13:18:42 GMT+0800 (中国标准时间)
+      // toLocaleTimeString()   下午1:20:27
+      // toLocaleString()    2020/4/21 下午1:21:06
+      console.log('nowTime.toDateString()', nowTime.toDateString())
+      console.log('nowTime.toTimeString()', nowTime.toTimeString())
+      console.log('nowTime.toLocaleDateString()', nowTime.toLocaleDateString())
+      console.log('nowTime.toLocaleTimeString()', nowTime.toLocaleTimeString())
+      console.log('nowTime.toLocaleString()', nowTime.toLocaleString())
+      console.log(partingLine)
+
+  
+    </script>
+  </body>
+
+</html>

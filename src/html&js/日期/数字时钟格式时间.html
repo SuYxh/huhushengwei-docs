@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字时钟格式时间</title>
+  </head>
+
+  <body>
+    <script>
+      /**
+       * @description:  数字时钟格式时间 9:15:33 AM
+       * @return {*}
+       */      
+      function digitalClock () {
+        const now = new Date();
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const second = now.getSeconds();
+        let time = '' + (hour > 12 ? hour - 12 : hour);
+        if (hour === 0) {
+          time = '12'
+        }
+        time = time + (minute > 10 ? ':' : '0:') + minute;
+        time = time + (second > 10 ? ':' : '0:') + second;
+        time = time + (hour > 12 ? ' P.M.' : ' A.M.')
+        return time
+      }
+      console.log('digitalClock', digitalClock())
+    </script>
+  </body>
+
+</html>
