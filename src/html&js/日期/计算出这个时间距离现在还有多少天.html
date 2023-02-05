@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*格式 getBeforeDate('2015,5,20')
+        计算传入的任意一时间。计算出这个时间距离现在还有多少天！或者计算过去的时间距离现在已经过去了多少天！
+        返回值有两种！
+        1、负值 代表过去了多少天
+        2、正值 代表距离设定的时间还有多少天
+        说明:距离设定的莫一天并不包括（设定的那一天），如果需要，计算的结果加1就可以了！
+      */
+      function getBeforeDate(n) {
+        let now = new Date()
+        let aftertime = new Date(n)
+        let year = now.getFullYear()
+        let mon = now.getMonth() + 1
+        let day = now.getDate()
+        let year_after = aftertime.getFullYear()
+        let mon_after = aftertime.getMonth() + 1
+        let day_after = aftertime.getDate()
+        let chs = 0
+        //获取当月的天数
+        function dayNumOfMonth(Year, Month) {
+          return 32 - new Date(Year, Month - 1, 32).getDate()
+        }
+
+        if (aftertime.getTime() - now.getTime() < 0) {
+          let temp1 = day_after
+          let temp2 = mon_after
+          let temp3 = year_after
+          day_after = day
+          mon_after = mon
+          year_after = year
+          day = temp1
+          mon = temp2
+          year = temp3
+        }
+        if (year == year_after) {
+          //不跨年
+          if (mon == mon_after) {
+            //不跨年不跨月
+            chs += day_after - day
+          } else {
+            //不跨年跨月
+            chs += dayNumOfMonth(year, mon) - day + 1 //加上第一个不满的
+            for (let i = 1; i < mon_after - mon; i++) {
+              chs += dayNumOfMonth(year, mon + i)
+            }
+            chs += day_after - 1 //加上
+          }
+        } else {
+          //存在跨年
+          chs += dayNumOfMonth(year, mon) - day + 1 //加上开始年份不满的一个月
+          for (let m = 1; m < 12 - mon; m++) {
+            chs += dayNumOfMonth(year, mon + m)
+          }
+          for (let j = 1; j < year_after - year; j++) {
+            if (
+              (year + j) % 400 == 0 ||
+              ((year + j) % 4 == 0 && (year + j) % 100 != 0)
+            ) {
+              chs += 366
+            } else {
+              chs += 365
+            }
+          }
+          for (let n = 1; n <= mon_after; n++) {
+            chs += dayNumOfMonth(year_after, n)
+          }
+          chs += day_after - 1
+        }
+        if (aftertime.getTime() - now.getTime() < 0) {
+          return -chs
+        } else {
+          return chs
+        }
+      }
+
+      console.log(getBeforeDate('2023-04-26'))
+      
+    </script>
+  </body>
+</html>
