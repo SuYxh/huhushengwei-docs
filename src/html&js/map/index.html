@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+  </head>
+
+  <body>
+    <script>
+      const m = new Map();
+      const o = { p: 'Hello World' };
+      console.log(m)
+
+      m.set(o, 'content')
+      m.get(o) // "content"
+
+      const map = new Map([
+        [{
+          name: '--',
+          age: 'j'
+        }, '张三'],
+        ['title', {
+          t1: 'dhsj',
+          t2: 'dhsj-',
+        }],
+        [o, 'jjjjj'],
+        ['da', 's', 'k', '   kkkk']
+      ]);
+
+      console.log(map)
+      console.log(map.get({
+        name: '--',
+        age: 'j'
+      }))
+      console.log(map.get(o))
+      console.log(map.get('da'))
+
+
+      const arr = ['gb23', 2022, ['eat', 'play']]
+      const {x, y, z} = arr
+      console.log(x)
+      console.log(y)
+      console.log(z)
+    </script>
+  </body>
+
+</html>
