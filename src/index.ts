@@ -27,6 +27,10 @@
 
 // arr-to-tree
 // import { funcTest } from './writeFn/arr-to-tree';
+// funcTest()
+
+import { funcTest } from './writeFn/arr-to-tree-pro.js';
+funcTest()
 
 // tree-to-arr
 // import { funcTest } from './writeFn/tree-to-arr'
