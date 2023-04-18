@@ -1,3 +1,16 @@
+/**
+ * 
+ * 听说你会Promise？ 那么如何控制请求并发数呢？
+ * https://juejin.cn/post/7219961144584552504?
+ * 
+ * 
+ * 我如何控制大屏看板 1000个 Echarts 渲染并发?
+ * https://juejin.cn/post/7043701993189146654
+ */
+
+
+
+
 const delay = function delay(interval) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
