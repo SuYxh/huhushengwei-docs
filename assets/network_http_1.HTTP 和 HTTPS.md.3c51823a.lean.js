@@ -1,1 +1,0 @@
-import{_ as t,e,o,Q as p}from"./plugin-vue_export-helper.8dc630d2.js";const P='{"title":"HTTP \u548C HTTPS","description":"","frontmatter":{},"relativePath":"network/http/1.HTTP \u548C HTTPS.md","lastUpdated":1681532720625}',c={},l=p('',9),i=[l];function d(h,s,T,_,r,a){return o(),e("div",null,i)}var H=t(c,[["render",d]]);export{P as __pageData,H as default};
