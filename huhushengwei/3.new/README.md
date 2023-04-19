@@ -11,6 +11,19 @@ new 的执行过程
 
 https://github.com/mqyqingfeng/Blog/issues/13
 
+
+
+```
+1、创建一个空对象
+2、将该对象的构造函数属性指向要创建实例的构造函数
+3、将该对象作为this关键字传递给构造函数，并执行该构造函数，以初始化对象的属性和方法
+4、如果构造函数返回一个对象，则返回该对象；否则，返回上面创建的对象
+```
+
+
+
+
+
 ## 代码
 
 方式一
@@ -79,3 +92,38 @@ function _new() {
   return flag ? result : newObject
 }
 ```
+
+
+
+方式4
+
+```js
+function myNew(constructor, ...args) {
+  // 创建一个空对象
+  const obj = {};
+
+  // 将该对象的构造函数属性指向要创建实例的构造函数
+  Object.setPrototypeOf(obj, constructor.prototype);
+
+  // 将该对象作为this关键字传递给构造函数，并执行该构造函数，以初始化对象的属性和方法
+  const result = constructor.apply(obj, args);
+
+  // 如果构造函数返回一个对象，则返回该对象；否则，返回上面创建的对象
+  return (result && typeof result === 'object') ? result : obj;
+}
+
+
+// 定义一个构造函数
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// 使用myNew创建实例
+const person = myNew(Person, 'Tom', 25);
+
+console.log(person instanceof Person); // true
+console.log(person.name); // 'Tom'
+console.log(person.age); // 25
+```
+
